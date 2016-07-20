@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="Entity" syncable="YES"/>
+    <entity name="Pays" syncable="YES">
+        <attribute name="id" optional="YES" transient="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Reseau" syncable="YES">
+        <attribute name="id" optional="YES" transient="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pays" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pays" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Pays" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Entity" positionX="-281" positionY="-9" width="128" height="43"/>
+        <element name="Reseau" positionX="-299" positionY="144" width="128" height="103"/>
+    </elements>
+</model>

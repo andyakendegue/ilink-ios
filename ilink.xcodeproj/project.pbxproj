@@ -8,12 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		B952F2C11CF3D5CE00F675F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952F2C01CF3D5CE00F675F7 /* AppDelegate.swift */; };
-		B952F2C31CF3D5CE00F675F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952F2C21CF3D5CE00F675F7 /* ViewController.swift */; };
 		B952F2C61CF3D5CE00F675F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B952F2C41CF3D5CE00F675F7 /* Main.storyboard */; };
 		B952F2C81CF3D5CE00F675F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B952F2C71CF3D5CE00F675F7 /* Assets.xcassets */; };
 		B952F2CB1CF3D5CE00F675F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B952F2C91CF3D5CE00F675F7 /* LaunchScreen.storyboard */; };
 		B952F2D61CF3D5CE00F675F7 /* ilinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952F2D51CF3D5CE00F675F7 /* ilinkTests.swift */; };
 		B952F2E11CF3D5CE00F675F7 /* ilinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952F2E01CF3D5CE00F675F7 /* ilinkUITests.swift */; };
+		B97F24F01CF3EAB70038D11D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F24EF1CF3EAB70038D11D /* MapKit.framework */; };
+		B9A3F6E21D218BF900E67F70 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A3F6E11D218BF900E67F70 /* HomeVC.swift */; };
+		B9A3F6E81D21DB0100E67F70 /* modalGeoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A3F6E71D21DB0100E67F70 /* modalGeoVC.swift */; };
+		B9A3F6EA1D21F23B00E67F70 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A3F6E91D21F23B00E67F70 /* HelpVC.swift */; };
+		B9A3F6EC1D21F3C200E67F70 /* AddSuperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A3F6EB1D21F3C200E67F70 /* AddSuperVC.swift */; };
+		B9A5FC801D2418940045916A /* SimpleUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5FC7F1D2418940045916A /* SimpleUserVC.swift */; };
+		B9A5FC821D2559A30045916A /* MotdepasseSimpleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5FC811D2559A20045916A /* MotdepasseSimpleVC.swift */; };
+		B9A5FC841D2559DE0045916A /* LoginGeoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5FC831D2559DE0045916A /* LoginGeoVC.swift */; };
+		B9A5FC861D255A050045916A /* MotdepasseGeoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5FC851D255A050045916A /* MotdepasseGeoVC.swift */; };
+		B9A5FC881D255A410045916A /* SignupGeoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5FC871D255A410045916A /* SignupGeoVC.swift */; };
+		B9A5FC8A1D25726C0045916A /* MarkerAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5FC891D25726C0045916A /* MarkerAnnotations.swift */; };
+		B9A5FC8D1D2584B60045916A /* ilink.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9A5FC8B1D2584B60045916A /* ilink.xcdatamodeld */; };
+		B9C0A05E1CF3EE8700D597EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0A05D1CF3EE8700D597EB /* ViewController.swift */; };
+		B9C0A0621CF3F0EF00D597EB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0A0611CF3F0EF00D597EB /* LoginVC.swift */; };
+		B9C0A0641CF3F23600D597EB /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0A0631CF3F23600D597EB /* SignupVC.swift */; };
+		B9E896651D3E68B400C1B9E9 /* HyperviseurHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E896641D3E68B400C1B9E9 /* HyperviseurHomeVC.swift */; };
+		B9E896671D3E68D800C1B9E9 /* SuperviseurHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E896661D3E68D800C1B9E9 /* SuperviseurHomeVC.swift */; };
+		B9E896691D3E690500C1B9E9 /* GeolocatedHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E896681D3E690500C1B9E9 /* GeolocatedHomeVC.swift */; };
+		B9E8966B1D3E76A300C1B9E9 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E8966A1D3E76A200C1B9E9 /* MenuController.swift */; };
+		B9E896701D3E8D9B00C1B9E9 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E8966F1D3E8D9B00C1B9E9 /* SWRevealViewController.m */; };
+		B9E896741D3FCF7400C1B9E9 /* CarteMembreGeoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E896731D3FCF7400C1B9E9 /* CarteMembreGeoVC.swift */; };
+		B9E896761D3FE3B700C1B9E9 /* MonCompteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E896751D3FE3B700C1B9E9 /* MonCompteVC.swift */; };
+		B9FAAA631D2ED91D005D15F2 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FAAA621D2ED91B005D15F2 /* Capital.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +58,6 @@
 /* Begin PBXFileReference section */
 		B952F2BD1CF3D5CD00F675F7 /* ilink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ilink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B952F2C01CF3D5CE00F675F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B952F2C21CF3D5CE00F675F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B952F2C51CF3D5CE00F675F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B952F2C71CF3D5CE00F675F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B952F2CA1CF3D5CE00F675F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +68,31 @@
 		B952F2DC1CF3D5CE00F675F7 /* ilinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ilinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B952F2E01CF3D5CE00F675F7 /* ilinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ilinkUITests.swift; sourceTree = "<group>"; };
 		B952F2E21CF3D5CE00F675F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B97F24EF1CF3EAB70038D11D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B9A3F6E11D218BF900E67F70 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		B9A3F6E71D21DB0100E67F70 /* modalGeoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = modalGeoVC.swift; sourceTree = "<group>"; };
+		B9A3F6E91D21F23B00E67F70 /* HelpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
+		B9A3F6EB1D21F3C200E67F70 /* AddSuperVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSuperVC.swift; sourceTree = "<group>"; };
+		B9A5FC7F1D2418940045916A /* SimpleUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleUserVC.swift; sourceTree = "<group>"; };
+		B9A5FC811D2559A20045916A /* MotdepasseSimpleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotdepasseSimpleVC.swift; sourceTree = "<group>"; };
+		B9A5FC831D2559DE0045916A /* LoginGeoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginGeoVC.swift; sourceTree = "<group>"; };
+		B9A5FC851D255A050045916A /* MotdepasseGeoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotdepasseGeoVC.swift; sourceTree = "<group>"; };
+		B9A5FC871D255A410045916A /* SignupGeoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupGeoVC.swift; sourceTree = "<group>"; };
+		B9A5FC891D25726C0045916A /* MarkerAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerAnnotations.swift; sourceTree = "<group>"; };
+		B9A5FC8C1D2584B60045916A /* ilink.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ilink.xcdatamodel; sourceTree = "<group>"; };
+		B9C0A05D1CF3EE8700D597EB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B9C0A0611CF3F0EF00D597EB /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		B9C0A0631CF3F23600D597EB /* SignupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		B9E896641D3E68B400C1B9E9 /* HyperviseurHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HyperviseurHomeVC.swift; sourceTree = "<group>"; };
+		B9E896661D3E68D800C1B9E9 /* SuperviseurHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperviseurHomeVC.swift; sourceTree = "<group>"; };
+		B9E896681D3E690500C1B9E9 /* GeolocatedHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocatedHomeVC.swift; sourceTree = "<group>"; };
+		B9E8966A1D3E76A200C1B9E9 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		B9E8966D1D3E8D9800C1B9E9 /* ilink-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ilink-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9E8966E1D3E8D9B00C1B9E9 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		B9E8966F1D3E8D9B00C1B9E9 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		B9E896731D3FCF7400C1B9E9 /* CarteMembreGeoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarteMembreGeoVC.swift; sourceTree = "<group>"; };
+		B9E896751D3FE3B700C1B9E9 /* MonCompteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonCompteVC.swift; sourceTree = "<group>"; };
+		B9FAAA621D2ED91B005D15F2 /* Capital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B97F24F01CF3EAB70038D11D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +124,7 @@
 		B952F2B41CF3D5CD00F675F7 = {
 			isa = PBXGroup;
 			children = (
+				B97F24EF1CF3EAB70038D11D /* MapKit.framework */,
 				B952F2BF1CF3D5CD00F675F7 /* ilink */,
 				B952F2D41CF3D5CE00F675F7 /* ilinkTests */,
 				B952F2DF1CF3D5CE00F675F7 /* ilinkUITests */,
@@ -97,12 +145,33 @@
 		B952F2BF1CF3D5CD00F675F7 /* ilink */ = {
 			isa = PBXGroup;
 			children = (
+				B9E8966C1D3E78E300C1B9E9 /* SWRevealViewController */,
+				B9C0A05D1CF3EE8700D597EB /* ViewController.swift */,
 				B952F2C01CF3D5CE00F675F7 /* AppDelegate.swift */,
-				B952F2C21CF3D5CE00F675F7 /* ViewController.swift */,
+				B9A3F6E11D218BF900E67F70 /* HomeVC.swift */,
 				B952F2C41CF3D5CE00F675F7 /* Main.storyboard */,
 				B952F2C71CF3D5CE00F675F7 /* Assets.xcassets */,
 				B952F2C91CF3D5CE00F675F7 /* LaunchScreen.storyboard */,
 				B952F2CC1CF3D5CE00F675F7 /* Info.plist */,
+				B9C0A0611CF3F0EF00D597EB /* LoginVC.swift */,
+				B9C0A0631CF3F23600D597EB /* SignupVC.swift */,
+				B9A3F6E71D21DB0100E67F70 /* modalGeoVC.swift */,
+				B9A3F6E91D21F23B00E67F70 /* HelpVC.swift */,
+				B9A3F6EB1D21F3C200E67F70 /* AddSuperVC.swift */,
+				B9A5FC7F1D2418940045916A /* SimpleUserVC.swift */,
+				B9A5FC811D2559A20045916A /* MotdepasseSimpleVC.swift */,
+				B9A5FC831D2559DE0045916A /* LoginGeoVC.swift */,
+				B9A5FC851D255A050045916A /* MotdepasseGeoVC.swift */,
+				B9A5FC871D255A410045916A /* SignupGeoVC.swift */,
+				B9A5FC891D25726C0045916A /* MarkerAnnotations.swift */,
+				B9A5FC8B1D2584B60045916A /* ilink.xcdatamodeld */,
+				B9FAAA621D2ED91B005D15F2 /* Capital.swift */,
+				B9E896641D3E68B400C1B9E9 /* HyperviseurHomeVC.swift */,
+				B9E896661D3E68D800C1B9E9 /* SuperviseurHomeVC.swift */,
+				B9E896681D3E690500C1B9E9 /* GeolocatedHomeVC.swift */,
+				B9E8966A1D3E76A200C1B9E9 /* MenuController.swift */,
+				B9E896731D3FCF7400C1B9E9 /* CarteMembreGeoVC.swift */,
+				B9E896751D3FE3B700C1B9E9 /* MonCompteVC.swift */,
 			);
 			path = ilink;
 			sourceTree = "<group>";
@@ -123,6 +192,16 @@
 				B952F2E21CF3D5CE00F675F7 /* Info.plist */,
 			);
 			path = ilinkUITests;
+			sourceTree = "<group>";
+		};
+		B9E8966C1D3E78E300C1B9E9 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B9E8966E1D3E8D9B00C1B9E9 /* SWRevealViewController.h */,
+				B9E8966F1D3E8D9B00C1B9E9 /* SWRevealViewController.m */,
+				B9E8966D1D3E8D9800C1B9E9 /* ilink-Bridging-Header.h */,
+			);
+			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,11 +266,24 @@
 		B952F2B51CF3D5CD00F675F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Capp Andy MIGOUMBI AKENDEGUE";
 				TargetAttributes = {
 					B952F2BC1CF3D5CD00F675F7 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = RAP52825X6;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					B952F2D01CF3D5CE00F675F7 = {
 						CreatedOnToolsVersion = 7.0;
@@ -255,8 +347,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B952F2C31CF3D5CE00F675F7 /* ViewController.swift in Sources */,
+				B9E8966B1D3E76A300C1B9E9 /* MenuController.swift in Sources */,
+				B9C0A0641CF3F23600D597EB /* SignupVC.swift in Sources */,
+				B9A3F6EA1D21F23B00E67F70 /* HelpVC.swift in Sources */,
+				B9A3F6E21D218BF900E67F70 /* HomeVC.swift in Sources */,
+				B9A5FC821D2559A30045916A /* MotdepasseSimpleVC.swift in Sources */,
+				B9A5FC8A1D25726C0045916A /* MarkerAnnotations.swift in Sources */,
+				B9A5FC881D255A410045916A /* SignupGeoVC.swift in Sources */,
+				B9FAAA631D2ED91D005D15F2 /* Capital.swift in Sources */,
+				B9A5FC841D2559DE0045916A /* LoginGeoVC.swift in Sources */,
+				B9A5FC801D2418940045916A /* SimpleUserVC.swift in Sources */,
+				B9A3F6E81D21DB0100E67F70 /* modalGeoVC.swift in Sources */,
+				B9A5FC8D1D2584B60045916A /* ilink.xcdatamodeld in Sources */,
+				B9E896741D3FCF7400C1B9E9 /* CarteMembreGeoVC.swift in Sources */,
+				B9E896651D3E68B400C1B9E9 /* HyperviseurHomeVC.swift in Sources */,
+				B9A3F6EC1D21F3C200E67F70 /* AddSuperVC.swift in Sources */,
+				B9E896701D3E8D9B00C1B9E9 /* SWRevealViewController.m in Sources */,
+				B9C0A05E1CF3EE8700D597EB /* ViewController.swift in Sources */,
+				B9A5FC861D255A050045916A /* MotdepasseGeoVC.swift in Sources */,
+				B9E896671D3E68D800C1B9E9 /* SuperviseurHomeVC.swift in Sources */,
 				B952F2C11CF3D5CE00F675F7 /* AppDelegate.swift in Sources */,
+				B9E896691D3E690500C1B9E9 /* GeolocatedHomeVC.swift in Sources */,
+				B9E896761D3FE3B700C1B9E9 /* MonCompteVC.swift in Sources */,
+				B9C0A0621CF3F0EF00D597EB /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,10 +511,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ilink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ilink/ilink-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -409,10 +528,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ilink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ilink/ilink-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -483,6 +607,7 @@
 				B952F2E71CF3D5CE00F675F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B952F2E81CF3D5CE00F675F7 /* Build configuration list for PBXNativeTarget "ilinkTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +616,7 @@
 				B952F2EA1CF3D5CE00F675F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B952F2EB1CF3D5CE00F675F7 /* Build configuration list for PBXNativeTarget "ilinkUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,8 +625,22 @@
 				B952F2ED1CF3D5CE00F675F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B9A5FC8B1D2584B60045916A /* ilink.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B9A5FC8C1D2584B60045916A /* ilink.xcdatamodel */,
+			);
+			currentVersion = B9A5FC8C1D2584B60045916A /* ilink.xcdatamodel */;
+			path = ilink.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B952F2B51CF3D5CD00F675F7 /* Project object */;
 }
