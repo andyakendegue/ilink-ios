@@ -36,27 +36,27 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
         
         //Setup our Map View
         theMap.delegate = self
-        theMap.mapType = MKMapType.Standard
+        theMap.mapType = MKMapType.standard
         theMap.showsUserLocation = true
         // Do any additional setup after loading the view, typically from a nib.
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let phoneUser = prefs.valueForKey("USERNAME") as? String
-        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        let prefs:UserDefaults = UserDefaults.standard()
+        let phoneUser = prefs.value(forKey: "USERNAME") as? String
+        let isLoggedIn:Int = prefs.integer(forKey: "ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_login", sender: self)
+            self.performSegue(withIdentifier: "goto_login", sender: self)
         } else {
             //self.usernameLabel.text = prefs.valueForKey("USERNAME") as? String
         }
         
         // Get Markers
         
-        let requestURL: NSURL = NSURL(string: "http://ilink-app.com/app/select/locations.php")!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
+        let requestURL: URL = URL(string: "http://ilink-app.com/app/select/locations.php")!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL)
+        let session = URLSession.shared()
+        let task = session.dataTask(with: urlRequest) {
             (data, response, error) -> Void in
             
-            let httpResponse = response as! NSHTTPURLResponse
+            let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             
             if (statusCode == 200) {
@@ -64,7 +64,7 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
                 
                 do{
                     
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
                     var i = 0
                     
                     //if let stations = json["stations"] as? [[String: AnyObject]] {
@@ -114,10 +114,10 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
                 
     }
     
-    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[CLLocation]) {
+    func locationManager(_ manager:CLLocationManager, didUpdate locations:[CLLocation]) {
         //theLabel.text = "\(locations[0])"
       
-        myLocations.append(locations[0] as! CLLocation)
+        myLocations.append(locations[0] )
         
         
         
@@ -146,29 +146,29 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
             let c2 = myLocations[destinationIndex].coordinate
             var a = [c1, c2]
             let polyline = MKPolyline(coordinates: &a, count: a.count)
-            theMap.addOverlay(polyline)
+            theMap.add(polyline)
         }
  
     }
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(_ mapView: MKMapView!, rendererFor overlay: MKOverlay!) -> MKOverlayRenderer! {
         
         if overlay is MKPolyline {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.blueColor()
+            polylineRenderer.strokeColor = UIColor.blue()
             polylineRenderer.lineWidth = 4
             return polylineRenderer
         }
         return nil
     }
     // Annotation Pin
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(_ mapView: MKMapView!, viewFor annotation: MKAnnotation!) -> MKAnnotationView! {
         // 1
         let identifier = "Capital"
         
         // 2
         if annotation is Capital {
             // 3
-            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             
             if annotationView == nil {
                 //4
@@ -176,14 +176,14 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
                 annotationView!.canShowCallout = true
                 
                 // 5
-                let btn = UIButton(type: .DetailDisclosure)
+                let btn = UIButton(type: .detailDisclosure)
                 annotationView!.rightCalloutAccessoryView = btn
-              annotationView!.tintColor = UIColor.purpleColor()
+              annotationView!.tintColor = UIColor.purple()
 
             } else {
                 // 6
                 annotationView!.annotation = annotation
-                annotationView!.tintColor = UIColor.purpleColor()
+                annotationView!.tintColor = UIColor.purple()
             }
             
             
@@ -193,14 +193,14 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
         // 7
         return nil
     }
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+    func mapView(_ mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         let capital = view.annotation as! Capital
         let placeName = capital.title
         let placeInfo = capital.info
         
-        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
+        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(ac, animated: true, completion: nil)
     }
     
     // End Annotation Pin
@@ -211,16 +211,16 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
     }
 
    
-    @IBAction func signoutTapped(sender: UIButton) {
-        self.performSegueWithIdentifier("goto_login", sender: self)
+    @IBAction func signoutTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goto_login", sender: self)
     }
     
-    @IBAction func changeNetwork(sender: UISegmentedControl) {
+    @IBAction func changeNetwork(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             let allAnnotations = self.theMap.annotations
@@ -241,8 +241,8 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
         
     }
    
-    @IBAction func zoomControl(sender: UIStepper) {
-        switch sender.selected {
+    @IBAction func zoomControl(_ sender: UIStepper) {
+        switch sender.isSelected {
         case true:
             print("first segement clicked")
         case false:
@@ -254,13 +254,13 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
     func allLocations() {
         // Get Markers
         
-        let requestURL: NSURL = NSURL(string: "http://ilink-app.com/app/select/locations.php")!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
+        let requestURL: URL = URL(string: "http://ilink-app.com/app/select/locations.php")!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL)
+        let session = URLSession.shared()
+        let task = session.dataTask(with: urlRequest) {
             (data, response, error) -> Void in
             
-            let httpResponse = response as! NSHTTPURLResponse
+            let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             
             if (statusCode == 200) {
@@ -268,7 +268,7 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
                 
                 do{
                     
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
                     var i = 0
                     
                     //if let stations = json["stations"] as? [[String: AnyObject]] {
@@ -310,13 +310,13 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
         
         // Get Markers
         
-        let requestURL: NSURL = NSURL(string: "http://ilink-app.com/app/select/locations.php")!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
+        let requestURL: URL = URL(string: "http://ilink-app.com/app/select/locations.php")!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL)
+        let session = URLSession.shared()
+        let task = session.dataTask(with: urlRequest) {
             (data, response, error) -> Void in
             
-            let httpResponse = response as! NSHTTPURLResponse
+            let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
             
             if (statusCode == 200) {
@@ -324,7 +324,7 @@ class SimpleUserVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelega
                 
                 do{
                     
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
                     var i = 0
                     
                     //if let stations = json["stations"] as? [[String: AnyObject]] {

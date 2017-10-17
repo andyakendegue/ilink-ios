@@ -23,18 +23,18 @@ class LoginVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signinTapped(sender: UIButton) {
+    @IBAction func signinTapped(_ sender: UIButton) {
         let username:NSString = txtUsername.text!
         let password:NSString = txtPassword.text!
         let tag:NSString = "login_ios"
         
-        if ( username.isEqualToString("") || password.isEqualToString("") ) {
+        if ( username.isEqual(to: "") || password.isEqual(to: "") ) {
             
             let alertView:UIAlertView = UIAlertView()
             alertView.title = "Sign in Failed!"
             alertView.message = "Please enter Username and Password"
             alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
+            alertView.addButton(withTitle: "OK")
             alertView.show()
         } else {
             
@@ -43,48 +43,48 @@ class LoginVC: UIViewController {
                 
                 NSLog("PostData: %@",post);
                 
-                let url:NSURL = NSURL(string:"https://ilink-app.com/app/index.php")!
+                let url:URL = URL(string:"https://ilink-app.com/app/index.php")!
                 
-                let postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
+                let postData:Data = post.data(using: String.Encoding.ascii.rawValue)!
                 
-                let postLength:NSString = String( postData.length )
+                let postLength:NSString = String( postData.count )
                 
-                let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-                request.HTTPMethod = "POST"
-                request.HTTPBody = postData
+                let request:NSMutableURLRequest = NSMutableURLRequest(url: url)
+                request.httpMethod = "POST"
+                request.httpBody = postData
                 request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
                 request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                 request.setValue("application/json", forHTTPHeaderField: "Accept")
                 
                 
                 var reponseError: NSError?
-                var response: NSURLResponse?
+                var response: URLResponse?
                 
-                var urlData: NSData?
+                var urlData: Data?
                 do {
-                    urlData = try NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
+                    urlData = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning:&response)
                 } catch let error as NSError {
                     reponseError = error
                     urlData = nil
                 }
                 
                 if ( urlData != nil ) {
-                    let res = response as! NSHTTPURLResponse!;
+                    let res = response as! HTTPURLResponse!;
                     
-                    NSLog("Response code: %ld", res.statusCode);
+                    NSLog("Response code: %ld", res?.statusCode);
                     
-                    if (res.statusCode >= 200 && res.statusCode < 300)
+                    if (res?.statusCode >= 200 && res?.statusCode < 300)
                     {
-                        let responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
+                        let responseData:NSString  = NSString(data:urlData!, encoding:String.Encoding.utf8.rawValue)!
                         
                         NSLog("Response ==> %@", responseData);
                         
                         //var error: NSError?
                         
-                        let jsonData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
+                        let jsonData:NSDictionary = try JSONSerialization.jsonObject(with: urlData!, options:JSONSerialization.ReadingOptions.mutableContainers ) as! NSDictionary
                         
                         
-                        let success:NSInteger = jsonData.valueForKey("success") as! NSInteger
+                        let success:NSInteger = jsonData.value(forKey: "success") as! NSInteger
                         
                         //[jsonData[@"success"] integerValue];
                         
@@ -94,13 +94,13 @@ class LoginVC: UIViewController {
                         {
                             NSLog("Login SUCCESS");
                             
-                            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                            prefs.setObject(username, forKey: "USERNAME")
-                            prefs.setInteger(1, forKey: "ISLOGGEDIN")
+                            let prefs:UserDefaults = UserDefaults.standard()
+                            prefs.set(username, forKey: "USERNAME")
+                            prefs.set(1, forKey: "ISLOGGEDIN")
                             prefs.synchronize()
                             
                             //self.dismissViewControllerAnimated(true, completion: nil)
-                            self.performSegueWithIdentifier("goto_simple_user_map", sender: self)
+                            self.performSegue(withIdentifier: "goto_simple_user_map", sender: self)
                         } else {
                             var error_msg:NSString
                             
@@ -113,7 +113,7 @@ class LoginVC: UIViewController {
                             alertView.title = "Sign in Failed!"
                             alertView.message = error_msg as String
                             alertView.delegate = self
-                            alertView.addButtonWithTitle("OK")
+                            alertView.addButton(withTitle: "OK")
                             alertView.show()
                             
                         }
@@ -123,7 +123,7 @@ class LoginVC: UIViewController {
                         alertView.title = "Sign in Failed!"
                         alertView.message = "Connection Failed"
                         alertView.delegate = self
-                        alertView.addButtonWithTitle("OK")
+                        alertView.addButton(withTitle: "OK")
                         alertView.show()
                     }
                 } else {
@@ -134,7 +134,7 @@ class LoginVC: UIViewController {
                         alertView.message = (error.localizedDescription)
                     }
                     alertView.delegate = self
-                    alertView.addButtonWithTitle("OK")
+                    alertView.addButton(withTitle: "OK")
                     alertView.show()
                 }
             } catch {
@@ -142,15 +142,15 @@ class LoginVC: UIViewController {
                 alertView.title = "Sign in Failed!"
                 alertView.message = "Server Error"
                 alertView.delegate = self
-                alertView.addButtonWithTitle("OK")
+                alertView.addButton(withTitle: "OK")
                 alertView.show()
             }
         }
     }
   
 
-    @IBAction func exit(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func exit(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     

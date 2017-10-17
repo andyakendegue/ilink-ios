@@ -32,22 +32,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         //Setup our Map View
         theMap.delegate = self
-        theMap.mapType = MKMapType.Standard
+        theMap.mapType = MKMapType.standard
         theMap.showsUserLocation = true
         // Do any additional setup after loading the view, typically from a nib.
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        let prefs:UserDefaults = UserDefaults.standard()
+        let isLoggedIn:Int = prefs.integer(forKey: "ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_login", sender: self)
+            self.performSegue(withIdentifier: "goto_login", sender: self)
         } else {
             //self.usernameLabel.text = prefs.valueForKey("USERNAME") as? String
         }
 
     }
     
-    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[CLLocation]) {
+    func locationManager(_ manager:CLLocationManager, didUpdate locations:[CLLocation]) {
         theLabel.text = "\(locations[0])"
-        myLocations.append(locations[0] as! CLLocation)
+        myLocations.append(locations[0] )
         
         let spanX = 0.007
         let spanY = 0.007
@@ -62,14 +62,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let c2 = myLocations[destinationIndex].coordinate
             var a = [c1, c2]
             let polyline = MKPolyline(coordinates: &a, count: a.count)
-            theMap.addOverlay(polyline)
+            theMap.add(polyline)
         }
     }
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(_ mapView: MKMapView!, rendererFor overlay: MKOverlay!) -> MKOverlayRenderer! {
         
         if overlay is MKPolyline {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.blueColor()
+            polylineRenderer.strokeColor = UIColor.blue()
             polylineRenderer.lineWidth = 4
             return polylineRenderer
         }
@@ -81,12 +81,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
-    self.performSegueWithIdentifier("goto_login", sender: self)
+    override func viewDidAppear(_ animated: Bool) {
+    self.performSegue(withIdentifier: "goto_login", sender: self)
     }
 
-    @IBAction func logoutTapped(sender: UIButton) {
-        self.performSegueWithIdentifier("goto_login", sender: self)
+    @IBAction func logoutTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goto_login", sender: self)
     }
 }
 

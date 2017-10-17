@@ -47,17 +47,17 @@ class AddSuperVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
      **/
     
     // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return paysData.count
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return paysData[row]
     }
     
@@ -66,23 +66,23 @@ class AddSuperVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
      **/
     
     // The number of columns of data
-    func numberOfComponentsInPickerReseauView(pickerPaysView: UIPickerView) -> Int {
+    func numberOfComponentsInPickerReseauView(_ pickerPaysView: UIPickerView) -> Int {
         return 1
     }
     
     // The number of rows of data
-    func pickerPaysView(pickerPaysView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerPaysView(_ pickerPaysView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return reseauData.count
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerPaysView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerPaysView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return reseauData[row]
     }
     
 
-    @IBAction func exit(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func exit(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

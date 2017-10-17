@@ -33,7 +33,7 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         
         //Setup our Map View
         theMap.delegate = self
-        theMap.mapType = MKMapType.Standard
+        theMap.mapType = MKMapType.standard
         theMap.showsUserLocation = true
 
 
@@ -46,9 +46,9 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     
-    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[CLLocation]) {
+    func locationManager(_ manager:CLLocationManager, didUpdate locations:[CLLocation]) {
         theLabel.text = "\(locations[0])"
-        myLocations.append(locations[0] as! CLLocation)
+        myLocations.append(locations[0] )
         
         let spanX = 0.007
         let spanY = 0.007
@@ -63,31 +63,31 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             let c2 = myLocations[destinationIndex].coordinate
             var a = [c1, c2]
             let polyline = MKPolyline(coordinates: &a, count: a.count)
-            theMap.addOverlay(polyline)
+            theMap.add(polyline)
         }
     }
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(_ mapView: MKMapView!, rendererFor overlay: MKOverlay!) -> MKOverlayRenderer! {
         
         if overlay is MKPolyline {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.blueColor()
+            polylineRenderer.strokeColor = UIColor.blue()
             polylineRenderer.lineWidth = 4
             return polylineRenderer
         }
         return nil
     }
-    @IBAction func signupTapped(sender: UIButton) {
+    @IBAction func signupTapped(_ sender: UIButton) {
         let username:NSString = txtUsername.text!
         let password:NSString = txtPassword.text!
         let confirm_password:NSString = txtConfirmPassword.text!
         
-        if ( username.isEqualToString("") || password.isEqualToString("") ) {
+        if ( username.isEqual(to: "") || password.isEqual(to: "") ) {
             
             let alertView:UIAlertView = UIAlertView()
             alertView.title = "Sign Up Failed!"
             alertView.message = "Please enter Username and Password"
             alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
+            alertView.addButton(withTitle: "OK")
             alertView.show()
         } else if ( !password.isEqual(confirm_password) ) {
             
@@ -95,7 +95,7 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             alertView.title = "Sign Up Failed!"
             alertView.message = "Passwords doesn't Match"
             alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
+            alertView.addButton(withTitle: "OK")
             alertView.show()
         } else {
             do {
@@ -104,48 +104,48 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                 
                 NSLog("PostData: %@",post);
                 
-                let url:NSURL = NSURL(string: "https://dipinkrishna.com/jsonsignup.php")!
+                let url:URL = URL(string: "https://dipinkrishna.com/jsonsignup.php")!
                 
-                let postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
+                let postData:Data = post.data(using: String.Encoding.ascii.rawValue)!
                 
-                let postLength:NSString = String( postData.length )
+                let postLength:NSString = String( postData.count )
                 
-                let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-                request.HTTPMethod = "POST"
-                request.HTTPBody = postData
+                let request:NSMutableURLRequest = NSMutableURLRequest(url: url)
+                request.httpMethod = "POST"
+                request.httpBody = postData
                 request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
                 request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
                 request.setValue("application/json", forHTTPHeaderField: "Accept")
                 
                 
                 var reponseError: NSError?
-                var response: NSURLResponse?
+                var response: URLResponse?
                 
-                var urlData: NSData?
+                var urlData: Data?
                 do {
-                    urlData = try NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
+                    urlData = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning:&response)
                 } catch let error as NSError {
                     reponseError = error
                     urlData = nil
                 }
                 
                 if ( urlData != nil ) {
-                    let res = response as! NSHTTPURLResponse!;
+                    let res = response as! HTTPURLResponse!;
                     
-                    NSLog("Response code: %ld", res.statusCode);
+                    NSLog("Response code: %ld", res?.statusCode);
                     
-                    if (res.statusCode >= 200 && res.statusCode < 300)
+                    if (res?.statusCode >= 200 && res?.statusCode < 300)
                     {
-                        let responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
+                        let responseData:NSString  = NSString(data:urlData!, encoding:String.Encoding.utf8.rawValue)!
                         
                         NSLog("Response ==> %@", responseData);
                         
                         //var error: NSError?
                         
-                        let jsonData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
+                        let jsonData:NSDictionary = try JSONSerialization.jsonObject(with: urlData!, options:JSONSerialization.ReadingOptions.mutableContainers ) as! NSDictionary
                         
                         
-                        let success:NSInteger = jsonData.valueForKey("success") as! NSInteger
+                        let success:NSInteger = jsonData.value(forKey: "success") as! NSInteger
                         
                         //[jsonData[@"success"] integerValue];
                         
@@ -154,7 +154,7 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                         if(success == 1)
                         {
                             NSLog("Sign Up SUCCESS");
-                            self.dismissViewControllerAnimated(true, completion: nil)
+                            self.dismiss(animated: true, completion: nil)
                         } else {
                             var error_msg:NSString
                             
@@ -167,7 +167,7 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                             alertView.title = "Sign Up Failed!"
                             alertView.message = error_msg as String
                             alertView.delegate = self
-                            alertView.addButtonWithTitle("OK")
+                            alertView.addButton(withTitle: "OK")
                             alertView.show()
                             
                         }
@@ -177,7 +177,7 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                         alertView.title = "Sign Up Failed!"
                         alertView.message = "Connection Failed"
                         alertView.delegate = self
-                        alertView.addButtonWithTitle("OK")
+                        alertView.addButton(withTitle: "OK")
                         alertView.show()
                     }
                 }  else {
@@ -188,7 +188,7 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                         alertView.message = (error.localizedDescription)
                     }
                     alertView.delegate = self
-                    alertView.addButtonWithTitle("OK")
+                    alertView.addButton(withTitle: "OK")
                     alertView.show()
                 }
             } catch {
@@ -196,17 +196,17 @@ class SignupVC: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                 alertView.title = "Sign Up Failed!"
                 alertView.message = "Server Error!"
                 alertView.delegate = self
-                alertView.addButtonWithTitle("OK")
+                alertView.addButton(withTitle: "OK")
                 alertView.show()
             }
         }
     }
 
-    @IBAction func gotoLogin(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func gotoLogin(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func exit(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func exit(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

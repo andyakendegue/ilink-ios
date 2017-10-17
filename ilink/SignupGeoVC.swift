@@ -22,8 +22,8 @@ class SignupGeoVC: UIViewController {
     }
     
 
-    @IBAction func exit(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func exit(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

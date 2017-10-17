@@ -22,8 +22,8 @@ class modalGeoVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func exitGeo(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func exitGeo(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
        /*
     // MARK: - Navigation

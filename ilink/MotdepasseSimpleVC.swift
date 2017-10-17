@@ -21,8 +21,8 @@ class MotdepasseSimpleVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func exit(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func exit(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
 
     /*
